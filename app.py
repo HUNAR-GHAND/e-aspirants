@@ -35,7 +35,7 @@ redundant_words = {
     "bizarre", "insane", "spectacular", "phenomenal", "disruptive", "insightful","must","has"
     "blockbuster", "mind-blowing truth", "essential", "key insights", "hot take","will","can","could",
     "big reveal", "major twist", "unexpected outcome", "mystery solved", "big secret","do","did",
-    "insanely", "dramatic", "revealing facts", "all you need to know", "instant reaction","is", "am",
+    "insanely", "dramatic", "revealing facts", "all you need to know", "instant reaction","is", "am","news",
     "reaction", "critics say", "analysts predict", "must-watch", "sensational facts","are","has","have",
     "this just happened", "unmasking", "scandal", "whistleblower", "busted", "shockwave","when","whose",
     "secrets revealed", "unveiled", "never-before-seen", "exposed", "jaw-dropping revelation","where","what","how"
@@ -43,7 +43,7 @@ redundant_words = {
 
 def shorten_headline(headline):
     words = nltk.word_tokenize(headline.lower())
-    filtered_words = [re.sub(r'[^a-zA-Z0-9\s]', '', word) for word in words]
+    filtered_words = [re.sub(r'[^a-zA-Z0-9.\s]', '', word) for word in words]
     filtered_words = [word for word in filtered_words if word and word not in stop_words and word not in redundant_words]
     
     # Preserve key terms related to legal matters
